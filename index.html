@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Music Interaction</title>
+    <style>
+      /* Reset default margin and padding */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: 'Arial', sans-serif;
+        overflow: hidden; /* Hide overflow */
+      }
+
+      /* Splash screen (initial page) */
+      #splash-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #000428, #004e92); /* Cool gradient background */
+        color: white;
+        z-index: 999;
+      }
+
+      /* Splash screen content */
+      #splash-screen h1 {
+        font-size: 3em;
+        text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      #splash-screen p {
+        font-size: 1.2em;
+        margin: 10px 0 30px;
+        text-align: center;
+        max-width: 600px;
+      }
+
+      /* Start button styling */
+      #start-button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+        background-color: #fff;
+        color: #004e92;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      #start-button:hover {
+        background-color: #004e92;
+        color: #fff;
+        transform: scale(1.05);
+      }
+
+      /* Hide the main program by default */
+      #main-content {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: black; /* Ensure a fallback black background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Make the image full screen and ensure the full image is visible */
+      #image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;  /* Full width of the viewport */
+        height: 100vh; /* Full height of the viewport */
+        object-fit: contain; /* Ensure the whole image fits within the viewport */
+        background-color: black; /* Background color to fill any gaps */
+        transition: opacity 1s ease, transform 0.3s ease; /* Smooth opacity and transform transitions */
+      }
+
+      #image:hover {
+        transform: scale(1.02); /* Slight zoom on hover */
+      }
+
+      /* Text styling */
+      h1 {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 2em;
+        font-family: 'Arial', sans-serif;
+        text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Text shadow for a glowing effect */
+        z-index: 10;
+        opacity: 0.9;
+        letter-spacing: 1px;
+        text-align: center; /* Ensure the text is centered */
+      }
+
+      /* Navigation icons */
+      .nav-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3em;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
+        user-select: none;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.6); /* Darker background for contrast */
+        border-radius: 50%;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .nav-icon:hover {
+        background-color: rgba(255, 255, 255, 0.3); /* Light background on hover */
+        transform: scale(1.1); /* Slight zoom on hover */
+      }
+
+      #prev {
+        left: 20px;
+      }
+
+      #next {
+        right: 20px;
+      }
+
+      /* Responsive design: adapt the layout for smaller screens */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.2em;
+        }
+
+        .nav-icon {
+          font-size: 2em;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Splash screen (initial page) -->
+    <div id="splash-screen">
+      <h1>Welcome to Image Music Interaction</h1>
+      <p>Experience a unique blend of space imagery and sound interaction. Click the button below to begin your journey.</p>
+      <button id="start-button">Start</button>
+    </div>
+
+    <!-- Main program content (initially hidden) -->
+    <div id="main-content">
+      <h1>Explore Space and Sound</h1>
+
+      <!-- Full-screen image -->
+      <img id="image" src="images/STScI-01J7492J6AJFB5C8Z8P18T5C18.png" alt="Space Image" />
+
+      <!-- Navigation icons -->
+      <span class="nav-icon" id="prev">&lt;</span>
+      <span class="nav-icon" id="next">&gt;</span>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script>
+      // When the user clicks the "Start" button, hide the splash screen and show the main content
+      document.getElementById("start-button").addEventListener("click", function() {
+        document.getElementById("splash-screen").style.display = "none"; // Hide the splash screen
+        document.getElementById("main-content").style.display = "flex";  // Show the main content
+      });
+    </script>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
