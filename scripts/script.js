@@ -5,8 +5,6 @@ window.onload = function () {
 
   const images = [
     "images/STScI-01J7492J6AJFB5C8Z8P18T5C18.png", // First image
-    "images/anotherImage1.png", // Second image
-    "images/anotherImage2.png",  // Add more images as needed
     "images/big_galaxy.png",
     "images/comet.png",
     "images/young_star.png",
